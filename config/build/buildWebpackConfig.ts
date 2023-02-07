@@ -4,21 +4,24 @@ import path from "path";
 import {buildPlugins} from "./buildPlugins";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolvers} from "./buildResolvers";
+import {buildDevServer} from "./buildDevServer";
 
 export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
-    const {path, mode} = options;
+    const {paths, mode, isDev} = options;
     return {
         mode: mode,
-        entry: path.entry,
+        entry: paths.entry,
         output: {
             filename: "[name].[contenthash].js",
-            path: path.build,
+            path: paths.build,
             clean: true,
         },
         plugins: buildPlugins(options),
         module: {
-            rules: buildLoaders()
+            rules: buildLoaders(options)
         },
         resolve: buildResolvers(),
+        devtool: isDev ? 'inline-source-map': undefined,
+        devServer: isDev ? buildDevServer(options): undefined
     }
 }
