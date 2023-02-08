@@ -1,14 +1,11 @@
 import React, {Suspense, useContext, useState} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
-import {Counter} from "./components/Counter";
-import './styles/index.scss'
-import About from "./pages/About/About";
-import Main from './pages/Main/Main';
-import {AboutAsync} from "./pages/About/About.async";
-import {MainAsync} from "./pages/Main/Main.async";
-import {ThemeContext} from "./theme/ThemeContext";
-import {useTheme} from "./theme/useTheme";
-import {classNames} from "./helpers/classNames/classNames";
+import './styles/index.scss';
+
+import {classNames} from "shared/lib/classNames/classNames";
+import { useTheme } from './providers/ThemeProvider';
+import {About} from "pages/About";
+import {Main} from "pages/Main";
 
 
 const App = () => {
@@ -21,11 +18,10 @@ const {theme, toggleTheme} = useTheme()
             <Link to={'/about'}>О сайте</Link>
             <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-                    <Route path={'/about'} element={<AboutAsync/>}/>
-                    <Route path={'/'} element={<MainAsync />}/>
+                    <Route path={'/about'} element={<About/>}/>
+                    <Route path={'/'} element={<Main/>}/>
             </Routes>
         </Suspense>
-            <Counter />
         </div>
     );
 };
