@@ -1,4 +1,6 @@
-import { Suspense, useContext, useState } from 'react';
+import {
+    Suspense, useContext, useEffect, useState,
+} from 'react';
 import './styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
@@ -8,6 +10,7 @@ import { useTheme } from './providers/ThemeProvider';
 
 const App = () => {
     const { theme } = useTheme();
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
