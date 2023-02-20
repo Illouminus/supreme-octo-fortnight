@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ThemeButton } from 'shared/ui/Button/ui/Button';
 
 export const BugButton = () => {
     const { t } = useTranslation();
@@ -15,7 +15,7 @@ export const BugButton = () => {
     }, [error]);
     return (
         <div>
-            <Button onClick={onThrow}>{t('Throw Error')}</Button>
+            <Button theme={ThemeButton.OUTLINE} onClick={onThrow}>{t('Throw Error')}</Button>
         </div>
     );
 };
