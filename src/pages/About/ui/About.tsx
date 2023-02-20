@@ -6,6 +6,7 @@ const About = () => {
 
     return (
         <div>
+            <p>{t('Comment')}</p>
             {t('О сайте')}
         </div>
     );
