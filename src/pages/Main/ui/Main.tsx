@@ -9,7 +9,6 @@ const Main = () => {
     return (
         <div>
             {t('Главная страница')}
-            <Counter />
         </div>
     );
 };
