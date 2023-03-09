@@ -19,6 +19,5 @@ export function componentRender(component: ReactNode, options: componentRenderOp
                 {component}
             </MemoryRouter>
         </StoreProvider>,
-
     );
 }

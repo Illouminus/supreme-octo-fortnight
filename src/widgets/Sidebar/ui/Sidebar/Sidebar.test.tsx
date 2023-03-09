@@ -14,5 +14,6 @@ describe('SideBar', () => {
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggle);
         expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+        expect(screen.getByTestId('sidebar')).toHaveFocus();
     });
 });

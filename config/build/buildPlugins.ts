@@ -27,10 +27,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions):
     if (isDev) {
         plugins.push(
             new ReactRefreshWebpackPlugin(),
-            new BundleAnalyzerPlugin({
-                openAnalyzer: false,
-            }),
+
         );
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        }));
     }
 
     return plugins;
